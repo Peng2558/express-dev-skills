@@ -10,6 +10,7 @@ const skills = [
     getOne
   };
   
+  
   function getAll() {
     return skills;
   }
