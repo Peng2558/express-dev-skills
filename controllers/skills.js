@@ -3,9 +3,11 @@ const Skill = require('../models/skill')
 module.exports = {
   index,
   show,
-  new:newTodo,
+  new:newSkill,
   create,
-  delete:deleteSkill
+  delete:deleteSkill,
+  edit,
+  update
 }
 
 function index(req, res) {
@@ -21,7 +23,7 @@ function show(req, res) {
     title: 'Skill Details'
   })
 } 
-function newTodo(req,res){
+function newSkill(req,res){
 
   res.render('skills/new', { title: 'New Skill' }); 
 
@@ -36,4 +38,16 @@ function create(req,res){
 function deleteSkill(req, res) {
   Skill.deleteOne(req.params.id);
   res.redirect('/skills');
+}
+function edit(req, res) {
+  res.render('skills/edit', {
+    title: 'Edit Skill',
+    skill: Skill.getOne(req.params.id)
+  })
+}
+function update(req,res){
+
+  Skill.updateOne(req.params.id,req.body);
+  res.redirect('/skills');
+
 }

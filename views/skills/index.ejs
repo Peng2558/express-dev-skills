@@ -10,6 +10,7 @@
         <a href="/skills/<%= t.id %>"><%= t.skill %></a>
           - 
         <%= t.Indorsed ? 'Indorsed' : 'not Indorsed' %>
+        <a href="/skills/<%= t.id %>/edit">Edit Skill</a>
       </li>
     <% }); %>
   </ul>
